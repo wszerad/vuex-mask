@@ -1,0 +1,46 @@
+{
+  "name": "vuex-mask",
+  "version": "0.0.1",
+  "description": "Class style module creator for Vuex ",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./example/index.html",
+    "test": "mocha --require ts-node/register tests/*.spec.ts",
+    "test:watch": "mocha --watch --require ts-node/register tests/*.spec.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wszerad/vuex-mask"
+  },
+  "author": "Wszerad",
+  "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "reflect-metadata": "^0.1.12",
+    "vue": "^2.6.10",
+    "vuex": "^3.1.1"
+  },
+  "peerDependencies": {
+    "typescript": "^3.3.3",
+    "vue": "^2.6.0",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "5.2.6",
+    "@types/node": "11.9.4",
+    "@types/reflect-metadata": "^0.1.0",
+    "@types/vue": "^2.0.0",
+    "@vue/component-compiler-utils": "^3.0.0",
+    "chai": "^4.1.7",
+    "mocha": "6.0.0",
+    "parcel": "^1.11.0",
+    "reflect-metadata": "^0.1.12",
+    "ts-node": "8.0.2",
+    "tsc": "1.20150623.0",
+    "typescript": "^3.3.3",
+    "vue": "^2.6.0",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
