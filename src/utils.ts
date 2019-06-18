@@ -18,7 +18,7 @@ export function metaValueBind<T>(meta: Symbol, target: any, key: string, value: 
 	bind.set(key, value);
 }
 
-export function metaValueExtractor<T>(meta: Symbol, target: any): Map<string, T> {
+export function metaValueExtract<T>(meta: Symbol, target: any): Map<string, T> {
 	return Reflect.getMetadata(meta, target) || new Map();
 }
 
