@@ -3,10 +3,12 @@ import {
 	replacePropsWithGetterSetter,
 	generateMutationsFromValues,
 	mapFunctions,
-	metaValueExtractor,
+	metaValueExtract,
 	mutationMeta,
 	vuexMeta, nameMeta
 } from './utils';
+
+declare let module: any;
 
 export function Module(constructor: Function): any {
 	const proto = constructor.prototype;
@@ -28,16 +30,31 @@ export function Module(constructor: Function): any {
 			...replacePropsWithGetterSetter(state)
 		});
 
-		store.registerModule(name, {
+		const options = {
 			namespaced: true,
 			state,
 			mutations: {
-				...mapFunctions(metaValueExtractor(mutationMeta, proto)),
+				...mapFunctions(metaValueExtract(mutationMeta, proto)),
 				...generateMutationsFromValues(state)
 			},
-			actions: mapFunctions(metaValueExtractor(actionMeta, proto), this),
+			actions: mapFunctions(metaValueExtract(actionMeta, proto), this),
 			getters: generateGettersFromPrototype(proto, this)
-		});
+		};
+
+		if (module && module.hot) {
+			module.hot.accept();
+
+			if (store.state[name]) {
+				store.hotUpdate({
+					modules: {
+						[name]: options
+					}
+				});
+				return;
+			}
+		}
+
+		store.registerModule(name, options);
 	}
 	Module.prototype = proto;
 
