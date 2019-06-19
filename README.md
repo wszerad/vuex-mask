@@ -39,8 +39,3 @@ export class Arsenal extends VuexMask {
 // Store - Vuex instance
 export default new Arsenal('arsenal', Store);
 ```
-
-### TODO
-
-1. add guards for prohibited access (dev-mode)
-2. nested modules

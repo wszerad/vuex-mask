@@ -1,6 +1,6 @@
 {
   "name": "vuex-mask",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Class style module creator for Vuex ",
   "main": "index.js",
   "scripts": {
